@@ -1,0 +1,33 @@
+apply plugin: 'com.android.library'
+group='com.github.zhoug'
+apply from:'maven_local.gradle'
+android {
+    compileSdkVersion COMPILE_SDK_VERSION
+//    buildToolsVersion "25.0.2"
+
+    defaultConfig {
+        minSdkVersion MIN_SDK_VERSION
+        targetSdkVersion TARGET_SDK_VERSION
+        versionCode 1
+        versionName "1.0.1"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            consumerProguardFiles 'proguard-rules.pro'
+
+        }
+    }
+}
+
+dependencies {
+
+    implementation rootProject.ext.android["appcompat-v7"]
+    implementation rootProject.ext.dependencies["zxing"]
+
+
+}
